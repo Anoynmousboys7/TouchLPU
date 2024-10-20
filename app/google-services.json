@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "405826067657",
+    "firebase_url": "https://medico-d0f60-default-rtdb.firebaseio.com",
+    "project_id": "medico-d0f60",
+    "storage_bucket": "medico-d0f60.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:405826067657:android:ddfdfab7565cc67b9a4118",
+        "android_client_info": {
+          "package_name": "com.example.myapplicationlpu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "405826067657-bdtmadg909h5mcm56bhjdp7dd4euhfud.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-s2EFJdWt4BGWvbk4BmbhpzSPF9Qao5U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "405826067657-bdtmadg909h5mcm56bhjdp7dd4euhfud.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

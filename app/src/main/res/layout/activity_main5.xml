@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    tools:context=".MainActivity5">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:id="@+id/loda">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/nav3"
+            android:padding="@dimen/_10sdp"
+            android:background="@color/primary">
+
+            <!-- Back button -->
+            <ImageView
+                android:id="@+id/back_button2"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/arrowsign"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:contentDescription="Back Button"
+                android:layout_marginTop="16dp" />
+
+            <!-- Header Titles -->
+            <TextView
+                android:id="@+id/mess_coupon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Residential Reporting Slip"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:textColor="#DCFFFFFF"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp" />
+
+
+
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nav3">
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
+
+                <ImageView
+                    android:id="@+id/university_logo"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_150sdp"
+                    android:src="@drawable/lpu"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_centerHorizontal="true"
+                    android:contentDescription="Lovely Professional University Logo" />
+
+
+
+                <TextView
+                    android:id="@+id/student_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="22119870"
+                    android:textSize="18sp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/_30sdp"
+                    android:textStyle="bold"
+                    android:layout_below="@id/university_logo"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/black"
+
+                    android:layout_marginTop="@dimen/_8sdp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_below="@+id/student_id"
+                    android:layout_centerHorizontal="true"
+                    app:cardBackgroundColor="@color/white"
+                    android:id="@+id/student_photo_holder"
+                    android:layout_marginTop="@dimen/_10sdp">
+
+                    <ImageView
+                        android:id="@+id/student_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/avtar"
+                        android:scaleType="fitXY"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:contentDescription="Student Photo" />
+
+                </androidx.cardview.widget.CardView>
+
+
+
+                <TextView
+                    android:id="@+id/verification_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VerificationID :"
+                    android:textStyle="bold"
+
+                    android:layout_below="@id/student_photo_holder"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:textColor="@color/black"
+ />
+                <TextView
+                    android:id="@+id/verification_id_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12345678"
+                    android:layout_below="@id/student_photo_holder"
+                    android:layout_toRightOf="@id/verification_id"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    />
+
+                <TextView
+                    android:id="@+id/student_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name:"
+                    android:layout_below="@id/verification_id"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/_16sdp" />
+                <TextView
+                    android:id="@+id/student_name_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UserName"
+                    android:layout_below="@id/verification_id"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_toRightOf="@id/student_name"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_16sdp" />
+
+                <TextView
+                    android:id="@+id/father_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Father's Name:"
+                    android:textStyle="bold"
+                    android:layout_below="@id/student_name"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:textColor="@color/black"
+
+                    android:layout_marginStart="@dimen/_16sdp"
+                    />
+                <TextView
+                    android:id="@+id/father_name_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="User's Father name"
+                    android:layout_below="@id/student_name"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:layout_toRightOf="@+id/father_name"
+                    android:layout_marginStart="@dimen/_5sdp"
+                     />
+
+                <TextView
+                    android:id="@+id/mother_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mother's Name:"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_below="@id/father_name"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginStart="@dimen/_16sdp"
+                     />
+
+                <TextView
+                    android:id="@+id/mother_name_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="User's Mother Name"
+                    android:textColor="@color/black"
+                    android:layout_toRightOf="@+id/mother_name"
+                    android:layout_below="@id/father_name"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    />
+
+                <TextView
+                    android:id="@+id/school_name"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/black"
+
+                    android:layout_height="wrap_content"
+                    android:text="School Name:"
+                    android:layout_below="@id/mother_name"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    />
+                <TextView
+                    android:id="@+id/school_name_in"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:text="School of Computer Science and"
+                    android:layout_below="@id/mother_name"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_toRightOf="@+id/school_name"
+                     android:layout_marginStart="@dimen/_5sdp"
+                  />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/school_name"
+                    android:text="Engineering"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="@dimen/_16sdp"/>
+
+                <TextView
+                    android:id="@+id/programme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+
+                    android:text="Programme:"
+                    android:layout_below="@id/school_name"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/_16sdp"
+                     />
+                <TextView
+                    android:id="@+id/programme_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="B.Tech. (Computer Science and"
+                    android:layout_below="@id/school_name"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_toRightOf="@id/programme"
+                    android:layout_marginStart="@dimen/_5sdp"
+                     />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/programme"
+                    android:textColor="@color/black"
+                    android:text=" Engineering)"
+                    android:layout_marginStart="@dimen/_14sdp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address:"
+                    android:layout_below="@id/programme"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginStart="@dimen/_16sdp"
+                 />
+                <TextView
+                    android:id="@+id/address_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your Address here"
+                    android:layout_below="@id/programme"
+                    android:textColor="@color/black"
+                    android:layout_toRightOf="@+id/address"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginStart="@dimen/_5sdp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:id="@+id/divider"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#7E7D7D"
+                    android:layout_below="@id/address"
+                    android:layout_marginTop="@dimen/_22sdp"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/divider"
+                    android:id="@+id/bkld">
+
+                    <!-- Residential Details Title -->
+                    <TextView
+                        android:id="@+id/residential_details_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Residential Details:"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_20sdp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginStart="@dimen/_16sdp" />
+
+                    <!-- Hostel -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_below="@id/residential_details_title"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginStart="@dimen/_16sdp">
+
+                        <TextView
+                            android:id="@+id/hostel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hostel: "
+                            android:textColor="@color/black"
+
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/hostel_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Girls Hostel"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <!-- Seater -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+
+                        android:layout_below="@id/residential_details_title"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:layout_marginStart="@dimen/_16sdp">
+
+                        <TextView
+                            android:id="@+id/seater"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+
+                            android:text="Seater: "
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/seater_value"
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/black"
+
+                            android:layout_height="wrap_content"
+                            android:text="Std Non-AC X Seater" />
+                    </LinearLayout>
+
+                    <!-- Room No -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_below="@id/residential_details_title"
+                        android:layout_marginTop="@dimen/_50sdp"
+                        android:layout_marginStart="@dimen/_16sdp">
+
+                        <TextView
+                            android:id="@+id/room_no"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Room No: "
+                            android:textColor="@color/black"
+
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/room_no_value"
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/black"
+
+                            android:layout_height="wrap_content"
+                            android:text="BED nUMBER" />
+                    </LinearLayout>
+
+                    <!-- Mess Name -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_below="@id/residential_details_title"
+                        android:layout_marginTop="@dimen/_65sdp"
+                        android:layout_marginStart="@dimen/_16sdp">
+
+                        <TextView
+                            android:id="@+id/mess_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+
+                            android:text="Mess Name: "
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/mess_name_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+
+                            android:text="Same Hostel Mess (Main)" />
+                    </LinearLayout>
+                </RelativeLayout>
+                <ImageView
+                    android:layout_width="@dimen/_350sdp"
+                    android:layout_height="@dimen/_200sdp"
+                    android:src="@drawable/sliptable"
+                    android:layout_below="@id/bkld"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_50sdp"/>
+
+
+
+
+
+
+            </RelativeLayout>
+        </ScrollView>
+
+
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

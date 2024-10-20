@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@color/primary"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity4">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/_15sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/nav2"
+            android:padding="@dimen/_10sdp"
+            android:background="@color/primary">
+
+            <!-- Back button -->
+            <ImageView
+                android:id="@+id/back_button"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/arrowsign"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:contentDescription="Back Button"
+                android:layout_marginTop="16dp" />
+
+            <!-- Header Titles -->
+            <TextView
+                android:id="@+id/mess_coupon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mess Coupon"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:textColor="#DCFFFFFF"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp" />
+
+            <TextView
+                android:id="@+id/meal_history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Meal History"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:fontFamily="@font/robotob"
+                android:textSize="@dimen/_13ssp"
+                android:textFontWeight="1000"
+                android:textStyle="bold"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="16dp" />
+
+
+        </RelativeLayout>
+
+
+        <!-- User Card Section -->
+        <LinearLayout
+            android:id="@+id/user_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/nav2"
+            android:layout_marginTop="@dimen/_10sdp"
+
+            android:background="@drawable/gradbg"
+
+            android:padding="16dp"
+            android:elevation="4dp"
+            android:layout_marginHorizontal="8dp"
+            android:clipToOutline="true">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_gravity="center_horizontal"
+                app:cardCornerRadius="@dimen/_12sdp">
+
+                <!-- Profile Image -->
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/avtar"
+                    android:scaleType="fitXY"/>
+
+            </androidx.cardview.widget.CardView>
+
+
+
+            <!-- User Name -->
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Name"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <!-- User Details -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginBottom="2dp"
+                android:text="Father's Name"
+                android:textColor="@color/primary"
+                android:fontFamily="sans-serif"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Father's Name (number)"
+                android:textColor="@color/primary"
+                android:id="@+id/father"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mother's Name"
+                android:textSize="14sp"
+                android:layout_marginBottom="2dp"
+                android:textColor="@color/primary"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mother's name (number)"
+                android:textSize="14sp"
+                android:id="@+id/mother"
+                android:textColor="@color/primary"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Program Name"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="2dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="P132:B.Tech. (Computer Science and Engineering)(2023)"
+                android:textSize="14sp"
+                android:id="@+id/programme"
+                android:textColor="@color/primary"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hostel"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary"
+                android:layout_marginBottom="2dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Girls Hostel-0X- XXX-Bed X (Std Non-AC X Seater)"
+                android:textSize="14sp"
+                android:textColor="@color/primary"
+                android:id="@+id/hostel"
+                android:layout_marginBottom="8dp" />
+
+        </LinearLayout>
+
+        <!-- Instructions Text -->
+        <TextView
+            android:id="@+id/instructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tap on the meal name to scan and avail food."
+            android:textSize="@dimen/_20ssp"
+            android:gravity="center"
+
+            android:fontFamily="@font/robotob"
+            android:textStyle="bold"
+            android:textFontWeight="1000"
+            android:textColor="@color/black"
+            android:layout_below="@id/user_card"
+            android:layout_margin="@dimen/_25sdp"
+            />
+
+        <!-- Meal Buttons Section -->
+        <LinearLayout
+            android:id="@+id/meal_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/instructions"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="16dp">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/breakfast"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:text="Breakfast →"
+                    android:fontFamily="@font/robotob"
+                    android:textStyle="bold"
+                    android:textFontWeight="1000"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/_13ssp"
+                    android:background="@drawable/gradbg"
+                    android:elevation="@dimen/_20sdp"
+                    android:textColor="@color/black"
+                    android:layout_marginEnd="@dimen/_15sdp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/lunch"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_toRightOf="@+id/breakfast"
+                    android:layout_height="wrap_content"
+                    android:text="Lunch →"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/robotob"
+                    android:textStyle="bold"
+                    android:textFontWeight="1000"
+                    android:background="@drawable/gradbg"
+                    android:elevation="@dimen/_10sdp"
+                    android:textSize="@dimen/_13ssp"
+                    android:textColor="@color/black" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/dinner"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:text="Dinner →"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/robotob"
+                    android:textStyle="bold"
+                    android:textFontWeight="1000"
+                    android:textSize="@dimen/_13ssp"
+                    android:background="@drawable/gradbg"
+                    android:elevation="@dimen/_10sdp"
+                    android:textColor="@color/black"
+                    android:layout_marginEnd="@dimen/_15sdp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/tea"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_toRightOf="@+id/dinner"
+                    android:layout_height="wrap_content"
+                    android:text="Tea →"
+                    android:textAllCaps="false"
+                    android:background="@drawable/gradbg"
+                    android:elevation="@dimen/_10sdp"
+                    android:fontFamily="@font/robotob"
+                    android:textStyle="bold"
+                    android:textFontWeight="1000"
+                    android:textSize="@dimen/_13ssp"
+                    android:textColor="@color/black" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

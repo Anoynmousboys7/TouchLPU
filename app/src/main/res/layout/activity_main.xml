@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/splash"
+            android:id="@+id/loadingscreen"
+            android:visibility="gone"
+            android:elevation="@dimen/_20sdp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon"
+                android:layout_margin="@dimen/_55sdp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:background="@drawable/okbtn"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_250sdp"
+            android:elevation="@dimen/_50sdp"
+            android:visibility="gone"
+            android:id="@+id/request">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Your request is already submitted please wait untill it is accepted or refresh to check status."
+                android:textSize="@dimen/_14ssp"
+                android:lineHeight="@dimen/_20sdp"
+                android:layout_margin="@dimen/_10sdp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="Refresh"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:background="@drawable/gradbg"
+                android:layout_margin="@dimen/_10sdp"
+                android:id="@+id/refresh"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_alignParentBottom="true"
+                android:text="Quit App"
+                android:textAllCaps="false"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/gradbg"
+                android:layout_margin="@dimen/_10sdp"
+                android:id="@+id/close"/>
+
+        </RelativeLayout>
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/imageholder"
+            android:layout_width="@dimen/_110sdp"
+            android:layout_height="@dimen/_110sdp"
+            android:background="@drawable/circularshadowbg"
+            android:elevation="@dimen/_10sdp"
+            android:padding="2dp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/_25sdp"
+            android:clipToOutline="true">
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                app:cardCornerRadius="@dimen/_110sdp"
+                app:cardBackgroundColor="@color/black">
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/avtar"/>
+
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageholder"
+            android:layout_centerHorizontal="true"
+            android:text="Select Image"
+            android:textColor="@color/black"
+            android:background="#F57F17"
+            android:padding="@dimen/_10sdp"
+            android:id="@+id/selimg"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/_150sdp"
+            android:hint="Enter Your name"
+            android:layout_below="@+id/selimg"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:id="@+id/nameentry"/>
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/_150sdp"
+            android:hint="Enter Your regid"
+            android:layout_below="@+id/nameentry"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:id="@+id/regentry"/>
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/_150sdp"
+            android:hint="Enter Your Father's Name"
+            android:layout_below="@+id/regentry"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:id="@+id/father"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/_150sdp"
+            android:hint="Enter Your Mother's Name"
+            android:layout_below="@+id/father"
+            android:backgroundTint="@color/black"
+            android:foregroundTint="@color/black"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:id="@+id/mother"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/_150sdp"
+            android:hint="Enter Your Father's Phone"
+            android:layout_below="@+id/mother"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:id="@+id/fatherno"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/_150sdp"
+            android:hint="Enter Your Mother's Phone"
+            android:layout_below="@+id/fatherno"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:id="@+id/motherno"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/_150sdp"
+            android:hint="Enter Your Course Name"
+            android:layout_below="@+id/motherno"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:id="@+id/coursename"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/_150sdp"
+            android:hint="Enter Your Hostel Details"
+            android:layout_below="@+id/coursename"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:id="@+id/hosteldetail"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/_150sdp"
+            android:hint="Enter Your School Name"
+            android:layout_below="@+id/hosteldetail"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:id="@+id/schoolname"/>
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/_150sdp"
+            android:hint="Enter Your Programme"
+            android:layout_below="@+id/schoolname"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:id="@+id/programmename"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/_150sdp"
+            android:hint="Enter Your Address"
+            android:layout_below="@+id/programmename"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:id="@+id/address"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/_150sdp"
+            android:hint="Enter Your Hostl Name"
+            android:layout_below="@+id/address"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:id="@+id/hostelname"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/_150sdp"
+            android:hint="Enter Your Room Seater"
+            android:layout_below="@+id/hostelname"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:id="@+id/seater"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/_150sdp"
+            android:hint="Enter Your Room number"
+            android:layout_below="@+id/seater"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:id="@+id/roomno"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/_150sdp"
+            android:hint="Enter Your Mess Name"
+            android:layout_below="@+id/roomno"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_100sdp"
+            android:id="@+id/messname"/>
+
+
+
+
+
+
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/messname"
+            android:id="@+id/pb1"
+            android:visibility="gone"/>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pb1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="Save data"
+            android:textColor="@color/black"
+            android:background="#F57F17"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_150sdp"
+            android:id="@+id/saved"/>
+
+    </RelativeLayout>
+
+
+
+
+
+</ScrollView>

@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="#ffffffff"
+    android:fitsSystemWindows="true"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context=".MainActivity6"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    >
+
+    <!-- Scrollable layout for content -->
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/nav3"
+        android:padding="@dimen/_10sdp"
+        android:background="@color/primary">
+
+        <!-- Back button -->
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrowsign"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:contentDescription="Back Button"
+            android:layout_marginTop="16dp" />
+
+        <!-- Header Titles -->
+        <TextView
+            android:id="@+id/mess_coupon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mess Food Feedback"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textColor="#DCFFFFFF"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp" />
+
+
+
+    </RelativeLayout>
+
+
+
+    <ScrollView
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/nav3"
+        android:layout_height="match_parent">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Mess Name -->
+
+            <!-- Food Type Section -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingBottom="12dp"
+                android:textColor="@color/black"
+                android:text="Mess Food Feedback"
+                android:textSize="@dimen/_20ssp"
+                android:textStyle="bold" />
+
+
+
+            <TextView
+                android:id="@+id/tv_mess_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingBottom="12dp"
+                android:textColor="@color/primary"
+                android:text="Mess Name: Same Hostel Mess (Main)"
+                android:textSize="@dimen/_15ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_food_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Food Type"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Food Type Radio Group -->
+            <RadioGroup
+                android:id="@+id/rg_food_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="8dp">
+
+                <RadioButton
+                    android:id="@+id/rb_breakfast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:text="Breakfast" />
+
+                <RadioButton
+                    android:id="@+id/rb_lunch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:text="Lunch" />
+
+                <RadioButton
+                    android:id="@+id/rb_snacks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:text="Snacks" />
+
+                <RadioButton
+                    android:id="@+id/rb_dinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:text="Dinner" />
+            </RadioGroup>
+
+            <!-- Question 1 -->
+            <TextView
+                android:id="@+id/tv_question1"
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:text="1. How do you rate the taste of food being served at Hostel Mess?"
+                android:textSize="16sp"
+                android:paddingTop="16dp" />
+
+            <RadioGroup
+                android:id="@+id/rg_question1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#15389B"
+                android:textStyle="bold"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rb_q1_below_average"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:text="Below Average" />
+
+                <RadioButton
+                    android:id="@+id/rb_q1_average"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#15389B"
+
+                    android:textStyle="bold"
+                    android:text="Average" />
+
+                <RadioButton
+                    android:id="@+id/rb_q1_satisfactory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:text="Satisfactory" />
+
+                <RadioButton
+                    android:id="@+id/rb_q1_good"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:text="Good" />
+
+                <RadioButton
+                    android:id="@+id/rb_q1_excellent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:text="Excellent" />
+            </RadioGroup>
+
+            <!-- Question 2 -->
+            <TextView
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:id="@+id/tv_question2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2. How do you rate the service of the employees at your Hostel Mess?"
+                android:textSize="16sp"
+                android:paddingTop="16dp" />
+
+            <RadioGroup
+                android:id="@+id/rg_question2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#15389B"
+                android:textStyle="bold"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rb_q2_below_average"
+                    android:layout_width="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Below Average" />
+
+                <RadioButton
+                    android:id="@+id/rb_q2_average"
+                    android:layout_width="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Average" />
+
+                <RadioButton
+                    android:id="@+id/rb_q2_satisfactory"
+                    android:layout_width="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Satisfactory" />
+
+                <RadioButton
+                    android:id="@+id/rb_q2_good"
+                    android:layout_width="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Good" />
+
+                <RadioButton
+                    android:id="@+id/rb_q2_excellent"
+                    android:layout_width="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Excellent" />
+            </RadioGroup>
+
+            <!-- Question 3 -->
+            <TextView
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:id="@+id/tv_question3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3. How do you rate the mess ambience at Hostel Mess?"
+                android:textSize="16sp"
+                android:paddingTop="16dp" />
+
+            <RadioGroup
+                android:id="@+id/rg_question3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#15389B"
+                android:textStyle="bold"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rb_q3_below_average"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:text="Below Average" />
+
+                <RadioButton
+                    android:id="@+id/rb_q3_average"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:text="Average" />
+
+                <RadioButton
+                    android:id="@+id/rb_q3_satisfactory"
+                    android:layout_width="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Satisfactory" />
+
+                <RadioButton
+                    android:id="@+id/rb_q3_good"
+                    android:layout_width="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Good" />
+
+                <RadioButton
+                    android:id="@+id/rb_q3_excellent"
+                    android:layout_width="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Excellent" />
+            </RadioGroup>
+
+            <!-- Question 4 -->
+            <TextView
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:id="@+id/tv_question4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4. How do you rate the hygiene level at Mess?"
+                android:textSize="16sp"
+                android:paddingTop="16dp" />
+
+            <RadioGroup
+                android:id="@+id/rg_question4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#15389B"
+                android:textStyle="bold"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rb_q4_below_average"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:text="Below Average" />
+
+                <RadioButton
+                    android:id="@+id/rb_q4_average"
+                    android:layout_width="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Average" />
+
+                <RadioButton
+                    android:id="@+id/rb_q4_satisfactory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:text="Satisfactory" />
+
+                <RadioButton
+                    android:id="@+id/rb_q4_good"
+                    android:layout_width="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Good" />
+
+                <RadioButton
+                    android:id="@+id/rb_q4_excellent"
+                    android:layout_width="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Excellent" />
+            </RadioGroup>
+
+            <!-- Question 5 -->
+            <TextView
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:id="@+id/tv_question5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5. How would you rate your overall experience of Mess Food at Hostel?"
+                android:textSize="16sp"
+                android:paddingTop="16dp" />
+
+            <RadioGroup
+                android:id="@+id/rg_question5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#15389B"
+                android:textStyle="bold"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rb_q5_below_average"
+                    android:layout_width="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Below Average" />
+
+                <RadioButton
+                    android:id="@+id/rb_q5_average"
+                    android:layout_width="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Average" />
+
+                <RadioButton
+                    android:id="@+id/rb_q5_satisfactory"
+                    android:layout_width="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Satisfactory" />
+
+                <RadioButton
+                    android:id="@+id/rb_q5_good"
+                    android:layout_width="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Good" />
+
+                <RadioButton
+                    android:id="@+id/rb_q5_excellent"
+                    android:layout_width="wrap_content"
+                    android:textColor="#15389B"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Excellent" />
+            </RadioGroup>
+
+            <!-- Additional Comments -->
+            <TextView
+                android:id="@+id/tv_comments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6. In case you find any variation please specify:-"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:paddingTop="16dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Type your comments here"
+                android:layout_marginTop="@dimen/_10sdp"
+
+                android:background="@drawable/orangeborder"
+                android:minHeight="@dimen/_100sdp"
+                android:paddingStart="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_5sdp">
+
+                <EditText
+                    android:id="@+id/et_comments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:hint="Type your comments here"
+                    android:background="@color/transparent"/>
+/>
+
+            </RelativeLayout>
+
+
+
+            <!-- Submit Button -->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_50sdp"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Submit"
+                    android:textColor="@color/white"
+                    android:background="@drawable/btn_grd"
+                    android:textAllCaps="false"
+                    android:id="@+id/submit_btn"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Reset"
+                    android:textAllCaps="false"
+                    android:id="@+id/reset_btn"
+                    android:textColor="@color/white"
+                    android:background="@drawable/btn_grd"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_toRightOf="@id/submit_btn"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_centerInParent="true"
+        android:id="@+id/okholder"
+        app:cardBackgroundColor="@color/white"
+        android:visibility="gone"
+        app:cardCornerRadius="@dimen/_5sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Submitted Sucessfully"
+                android:id="@+id/rx"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:textSize="@dimen/_10ssp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rx"
+                android:text="OK"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/okbtn"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:id="@+id/submitted"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

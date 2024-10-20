@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:background="@drawable/shadowbg1"
+    android:layout_width="@dimen/_165sdp"
+    android:layout_height="@dimen/_110sdp"
+    android:layout_marginLeft="@dimen/_15sdp"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:layout_marginBottom="@dimen/_10sdp"
+    android:elevation="@dimen/_5sdp" app:cardCornerRadius="@dimen/_7sdp"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:background="@drawable/lineargradinetbasic"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <TextView
+            android:textSize="@dimen/_15ssp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:id="@id/subject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="CSE202"
+            android:layout_marginStart="@dimen/_10sdp" />
+        <TextView
+            android:textSize="@dimen/_10ssp"
+            android:textColor="@color/black"
+            android:id="@+id/classroom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="34- 101"
+            android:layout_below="@+id/subject"
+            android:layout_marginStart="@dimen/_10sdp" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_below="@id/classroom"
+            android:layout_marginStart="@dimen/_10sdp" app:cardBackgroundColor="#ffffdd7c" app:cardCornerRadius="@dimen/_2sdp" />
+        <TextView
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/white"
+            android:id="@id/time"
+            android:background="#ff323232"
+            android:paddingTop="@dimen/_2sdp"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/_23sdp"
+            android:text="07-08 PM"
+            android:layout_alignParentBottom="true"
+            android:textAlignment="center" />
+        <ImageView
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:src="@drawable/bookz"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
