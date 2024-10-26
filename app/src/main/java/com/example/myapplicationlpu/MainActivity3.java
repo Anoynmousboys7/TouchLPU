@@ -78,33 +78,57 @@ public class MainActivity3 extends AppCompatActivity {
             }
         });
 
+        SharedPreferences sharedPref = getSharedPreferences("MyAppPreferences",Context.MODE_PRIVATE);
+
+
+
 
         breakfast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mealtype = "Breakfast";
-                scan();
+                if(sharedPref.getString("hexcode", "xxxxxx").equals("xxxxxx")){
+                    Toast.makeText(MainActivity3.this, "Please Upload a HEX code", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    scan();
+                }
             }
         });
         lunch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mealtype = "Lunch";
-                scan();
+                if(sharedPref.getString("hexcode", "xxxxxx").equals("xxxxxx")){
+                    Toast.makeText(MainActivity3.this, "Please Upload a HEX code", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    scan();
+                }
             }
         });
         tea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mealtype = "Tea";
-                scan();
+                if(sharedPref.getString("hexcode", "xxxxxx").equals("xxxxxx")){
+                    Toast.makeText(MainActivity3.this, "Please Upload a HEX code", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    scan();
+                }
             }
         });
         dinner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mealtype = "Dinner";
-                scan();
+                if(sharedPref.getString("hexcode", "xxxxxx").equals("xxxxxx")){
+                    Toast.makeText(MainActivity3.this, "Please Upload a HEX code", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    scan();
+                }
             }
         });
 

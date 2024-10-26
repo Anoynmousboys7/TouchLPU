@@ -5,21 +5,26 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static android.app.PendingIntent.getActivity;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.storage.StorageManager;
 import android.os.storage.StorageVolume;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -37,6 +42,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -87,6 +93,11 @@ public class MainActivity extends AppCompatActivity {
     int request_count = 0;
 
     HashMap<String, Object> data = new HashMap<>();
+
+    Dialog dialog;
+
+    private final String APP_VERSION = "1.0.7";
+    private static final long THIRTY_MINUTES_IN_MILLIS = 30 * 60 * 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,6 +163,21 @@ public class MainActivity extends AppCompatActivity {
                     !lschool.isEmpty() && !lpgm.isEmpty() && !laddress.isEmpty() && !lhostelname.isEmpty() && !lseater.isEmpty() && !lroom.isEmpty() && !lmess.isEmpty()) {
                 // All required values are present and non-empty
 
+                long lastSavedTime = sharedPref.getLong("LAST_TIME_KEY", -1);
+
+                // If there's no saved time, assume 30 minutes have not passed (first time usage)
+                if (lastSavedTime != -1) {
+
+                    long currentTime = System.currentTimeMillis();
+                    long timeDifference = currentTime - lastSavedTime;
+                    if(timeDifference>=THIRTY_MINUTES_IN_MILLIS){
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putString("hexcode", "xxxxxx");
+                        editor.apply();
+                    }
+                }
+
+
                 deviceVerification();
 
                 Log.d("SharedPreferences", "All values are saved and non-empty.");
@@ -184,6 +210,29 @@ public class MainActivity extends AppCompatActivity {
         seater = findViewById(R.id.seater);
         room = findViewById(R.id.roomno);
         messname = findViewById(R.id.messname);
+
+        dialog = new Dialog(MainActivity.this);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.dialogbox_update);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        MaterialButton skip = dialog.findViewById(R.id.button_skip);
+        AppCompatButton update = dialog.findViewById(R.id.button_update);
+
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                Intent intent = new Intent(MainActivity.this, MainActivity4.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openLink(MainActivity.this, "https://drive.google.com/drive/folders/1e_tXCDaam8NEaAfGlGzB1lnFZDCACVvO?usp=sharing");
+            }
+        });
 
 
 
@@ -273,16 +322,17 @@ public class MainActivity extends AppCompatActivity {
                 if (snapshot.exists()){
 
                     for (DataSnapshot snapshot1 : snapshot.getChildren()){
-                        if(snapshot1.child("device_id").equals(sharedPref.getString("device_id", "mmm"))){
-                            Intent intent = new Intent(MainActivity.this, MainActivity4.class);
-                            startActivity(intent);
-                            finish();
+                        if(snapshot1.child("device_id").getValue().toString().equals(sharedPref.getString("device_id", "mmm"))){
+
+                            getAppVersionInfo();
+                            return;
                         }
-                        Toast.makeText(MainActivity.this, "Device registration request is still not approved", Toast.LENGTH_SHORT).show();
-                        request.setVisibility(View.VISIBLE);
-                        savebtn.setClickable(false);
+
 
                     }
+                    Toast.makeText(MainActivity.this, "Device registration request is still not approved", Toast.LENGTH_SHORT).show();
+                    request.setVisibility(View.VISIBLE);
+                    savebtn.setClickable(false);
 
 
 
@@ -342,6 +392,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("device_id", device_ip);
         editor.putBoolean("isSaved", true);
         editor.apply();
+        databaseReference.child("device_ids").child(device_ip).setValue(device_ip);
 
         data.put("name", mname);
         data.put("regid", reg);
@@ -451,26 +502,27 @@ public class MainActivity extends AppCompatActivity {
             // Create the directory if it does not exist
             if (!fileOutputDir.exists()) {
                 fileOutputDir.mkdirs();
+                // Create the image file path
+                File file = new File(fileOutputDir, "profileimg.jpg");
+
+                try {
+                    // Create a FileOutputStream; this will overwrite the file if it already exists
+                    FileOutputStream fileOutputStream = new FileOutputStream(file);
+
+                    // Write the image data to the file
+                    fileOutputStream.write(bitmapData);
+                    fileOutputStream.close();
+
+                    // Notify the user that the image has been saved successfully
+                    Toast.makeText(MainActivity.this, "Image Saved Successfully", Toast.LENGTH_SHORT).show();
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException("File not found: " + e.getMessage(), e);
+                } catch (IOException e) {
+                    throw new RuntimeException("Error while writing the image: " + e.getMessage(), e);
+                }
             }
 
-            // Create the image file path
-            File file = new File(fileOutputDir, "profileimg.jpg");
 
-            try {
-                // Create a FileOutputStream; this will overwrite the file if it already exists
-                FileOutputStream fileOutputStream = new FileOutputStream(file);
-
-                // Write the image data to the file
-                fileOutputStream.write(bitmapData);
-                fileOutputStream.close();
-
-                // Notify the user that the image has been saved successfully
-                Toast.makeText(MainActivity.this, "Image Saved Successfully", Toast.LENGTH_SHORT).show();
-            } catch (FileNotFoundException e) {
-                throw new RuntimeException("File not found: " + e.getMessage(), e);
-            } catch (IOException e) {
-                throw new RuntimeException("Error while writing the image: " + e.getMessage(), e);
-            }
         }
     }
 
@@ -533,6 +585,49 @@ public class MainActivity extends AppCompatActivity {
     public interface EmailSentListener {
         void onEmailSent();
         void onEmailFailed(Exception e);
+    }
+
+    public void getAppVersionInfo() {
+
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists() && !snapshot.child("app_version").getValue().toString().equals(APP_VERSION)){
+                    Toast.makeText(MainActivity.this, "It is not Updated", Toast.LENGTH_SHORT).show();
+                    dialog.show();
+
+
+                }
+                else{
+                    Intent intent = new Intent(MainActivity.this, MainActivity4.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+    }
+
+    public void openLink(AppCompatActivity activity, String url) {
+        try {
+            // Create an intent with the action to view a URL
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(url));
+
+            // Check if there is an app that can handle the intent
+
+            startActivity(intent);
+        } catch (Exception e) {
+            // Catch any exceptions and display a message
+            Toast.makeText(activity, "An error occurred while trying to open the link.", Toast.LENGTH_SHORT).show();
+        }
     }
 
 

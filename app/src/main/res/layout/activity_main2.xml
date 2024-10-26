@@ -39,10 +39,11 @@
             android:textSize="@dimen/_14ssp"/>
 
         <ImageView
-            android:layout_width="@dimen/_10sdp"
-            android:layout_height="@dimen/_10sdp"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
             android:src="@drawable/close"
             android:id="@+id/cancel"
+            android:padding="@dimen/_5sdp"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="@dimen/_10sdp"/>

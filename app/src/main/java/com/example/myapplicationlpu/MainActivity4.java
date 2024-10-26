@@ -122,6 +122,8 @@ public class MainActivity4 extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPref.edit();
                 Toast.makeText(MainActivity4.this, hexentry.getText().toString(), Toast.LENGTH_SHORT).show();
                 editor.putString("hexcode", hexentry.getText().toString());
+                long currentTime = System.currentTimeMillis();
+                editor.putLong("LAST_TIME_KEY", currentTime);
                 editor.apply();
                 cc.setVisibility(View.GONE);
             }
