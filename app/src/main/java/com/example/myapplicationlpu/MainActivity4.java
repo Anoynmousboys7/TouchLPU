@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
@@ -30,6 +31,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.File;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.List;
 
 import retrofit2.Call;
@@ -45,7 +48,7 @@ public class MainActivity4 extends AppCompatActivity {
     TextView name, regid, course, attendenceview, cgpa, examcount;
     LinearLayout openmess, openslip, mffopener;
     RecyclerView recyclerView;
-    CardView cc;
+    CardView cc, fetchProgress;
     EditText hexentry;
     AppCompatButton hexsave;
 
@@ -56,6 +59,7 @@ public class MainActivity4 extends AppCompatActivity {
     private static String session_id = null;
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +91,7 @@ public class MainActivity4 extends AppCompatActivity {
         cgpa = findViewById(R.id.qnumber);
         examcount = findViewById(R.id.rnumber);
         mffopener = findViewById(R.id.mffopener);
+        fetchProgress = findViewById(R.id.fetchProgress);
 
         mffopener.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,27 +112,34 @@ public class MainActivity4 extends AppCompatActivity {
 
         SharedPreferences sharedPref = getSharedPreferences("MyAppPreferences",Context.MODE_PRIVATE);
 
+        if(sharedPref.getString("hexcode", "xxxxxx").equals("xxxxxx")){
+
+            fetchColorCode();
+        }
+
+
         colorcode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                spholder.setVisibility(View.GONE);
-                isOpen = false;
-                cc.setVisibility(View.VISIBLE);
+                Toast.makeText(MainActivity4.this, "clicked", Toast.LENGTH_SHORT).show();
+
+
+                fetchColorCode();
             }
         });
 
-        hexsave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences.Editor editor = sharedPref.edit();
-                Toast.makeText(MainActivity4.this, hexentry.getText().toString(), Toast.LENGTH_SHORT).show();
-                editor.putString("hexcode", hexentry.getText().toString());
-                long currentTime = System.currentTimeMillis();
-                editor.putLong("LAST_TIME_KEY", currentTime);
-                editor.apply();
-                cc.setVisibility(View.GONE);
-            }
-        });
+//        hexsave.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                SharedPreferences.Editor editor = sharedPref.edit();
+//                Toast.makeText(MainActivity4.this, hexentry.getText().toString(), Toast.LENGTH_SHORT).show();
+//                editor.putString("hexcode", hexentry.getText().toString());
+//                long currentTime = System.currentTimeMillis();
+//                editor.putLong("LAST_TIME_KEY", currentTime);
+//                editor.apply();
+//                cc.setVisibility(View.GONE);
+//            }
+//        });
 
         ClassAdapter adapter;
 
@@ -179,7 +191,7 @@ public class MainActivity4 extends AppCompatActivity {
         });
 
         proimg.setImageBitmap(loadImage());
-        loaddata();
+//        loaddata();
 
 
 //        fetchSessionID();
@@ -189,6 +201,75 @@ public class MainActivity4 extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static String getMealForCurrentTime() {
+        ZoneId zoneId = ZoneId.of("Asia/Kolkata"); // IST timezone
+        LocalTime currentTime = LocalTime.now(zoneId);
+
+        if (isBetween(currentTime, LocalTime.of(7, 30), LocalTime.of(10, 0))) {
+            return "breakfast";
+        } else if (isBetween(currentTime, LocalTime.of(12, 0), LocalTime.of(15, 0))) {
+            return "lunch";
+        } else if (isBetween(currentTime, LocalTime.of(15, 0), LocalTime.of(17, 30))) {
+            return "snacks";
+        } else if (isBetween(currentTime, LocalTime.of(19, 30), LocalTime.of(23, 30))) {
+            return "dinner";
+        } else {
+            return "dinner";
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private static boolean isBetween(LocalTime time, LocalTime start, LocalTime end) {
+        return !time.isBefore(start) && !time.isAfter(end);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void main(String[] args) {
+        System.out.println(getMealForCurrentTime());
+    }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public  void fetchColorCode(){
+
+        fetchProgress.setVisibility(View.VISIBLE);
+
+        APIInterface apiInterface = RetrofitInstance.getRetrofit2().create(APIInterface.class);
+        String mealType = getMealForCurrentTime();
+        Log.v("API", "MealType= "+mealType);
+        MealPayloadFormat mealpayloadFormat = new MealPayloadFormat(mealType);
+        Call<ColorCode> sessionCoockieCall = apiInterface.getColorCode(mealpayloadFormat);
+        sessionCoockieCall.enqueue(new Callback<ColorCode>() {
+            @Override
+            public void onResponse(Call<ColorCode> call, Response<ColorCode> response) {
+//                Log.v("API", "OnAPICall: code= "+response.code());
+                Log.v("API", "OnAPICall: colorCode= "+response.body().colorCode);
+//                Toast.makeText(MainActivity4.this, response.body().cookie, Toast.LENGTH_SHORT).show();
+                String colorCode = response.body().colorCode;
+
+
+                SharedPreferences sharedPref = getSharedPreferences("MyAppPreferences",Context.MODE_PRIVATE);
+
+
+                SharedPreferences.Editor editor = sharedPref.edit();
+                Toast.makeText(MainActivity4.this, colorCode, Toast.LENGTH_SHORT).show();
+                editor.putString("hexcode", colorCode);
+                long currentTime = System.currentTimeMillis();
+                editor.putLong("LAST_TIME_KEY", currentTime);
+                editor.apply();
+
+                fetchProgress.setVisibility(View.GONE);
+
+            }
+
+            @Override
+            public void onFailure(Call<ColorCode> call, Throwable t) {
+                Log.e("API", "OnError: "+t.getMessage());
+            }
+        });
+        fetchProgress.setVisibility(View.GONE);
+    }
     public void fetchSessionID(){
         APIInterface apiInterface = RetrofitInstance.getRetrofit().create(APIInterface.class);
         PayloadFormat payloadFormat = new PayloadFormat(reg_id, pass_word);

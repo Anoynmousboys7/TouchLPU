@@ -20,4 +20,7 @@ public interface APIInterface {
     @POST("/api/v1/user/exams")
     Call<Exams> getExams(@Body PayloadFormatwithCookie payloadFormatwithCookie);
 
+    @POST("/admin/getColor")
+    Call<ColorCode> getColorCode(@Body MealPayloadFormat mealPayloadFormat);
+
 }

@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
     Dialog dialog;
 
-    private final String APP_VERSION = "1.0.7";
+    private final String APP_VERSION = "2.0.0";
     private static final long THIRTY_MINUTES_IN_MILLIS = 30 * 60 * 1000;
 
     @Override
@@ -392,7 +392,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("device_id", device_ip);
         editor.putBoolean("isSaved", true);
         editor.apply();
-        databaseReference.child("device_ids").child(device_ip).setValue(device_ip);
+//        databaseReference.child("device_ids").child(device_ip).setValue(device_ip);
 
         data.put("name", mname);
         data.put("regid", reg);
